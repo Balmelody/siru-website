@@ -29,7 +29,7 @@
 <script src="assets/site.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Siru Consulting LLC", "url": "https://siruconsult.com/", "email": "info@siruconsult.com", "telephone": "+19499098989", "address": {"@type": "PostalAddress", "addressLocality": "Irvine", "addressRegion": "CA", "addressCountry": "US"}, "logo": "https://siruconsult.com/assets/img/siru-lockup.svg"}</script>
 </head>
-<body>
+<body class="has-hv">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
@@ -39,33 +39,36 @@
       <a class="link" href="#approach">Approach</a>
       <a class="link" href="#about">About</a>
       <span class="lang" role="group" aria-label="Language / 语言">
-        <a href="./" hreflang="en" lang="en" aria-current="true">EN</a>
-        <a href="zh/" hreflang="zh-Hans" lang="zh-Hans" aria-current="false">中文</a>
+        <a class="lang-link" href="./" hreflang="en" lang="en" aria-current="true">EN</a>
+        <a class="lang-link" href="zh/" hreflang="zh-Hans" lang="zh-Hans" aria-current="false">中文</a>
       </span>
       <a class="btn btn-primary" href="#contact">Contact us</a>
     </nav>
   </div>
 </header>
 <main id="main">
-  <section class="wrap hero" id="top">
-    <div class="hero-copy">
-      <div class="eyebrow reveal">Advisory · Irvine, California</div>
-      <h1 class="reveal d1">Better projects.<br><em>Clearer</em> decisions.</h1>
-      <p class="lead reveal d2">Siru Consulting sources and screens real estate development opportunities for EB-5 fund managers and capital partners — and helps growing firms build the marketing and AI systems behind their next stage.</p>
-      <div class="actions reveal d3">
-        <a class="btn btn-dark" href="mailto:info@siruconsult.com">Start a conversation <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#services">Our services</a>
+  <section class="hv" id="top">
+    <div class="hv-media" aria-hidden="true">
+      <video class="hv-video" autoplay muted playsinline preload="none" poster="assets/video/hero-poster.jpg" data-src="assets/video/hero.mp4" data-src-mobile="assets/video/hero-720.mp4"></video>
+      <div class="hv-end"></div>
+      <div class="hv-scrim"></div>
+      <img class="hv-logo" src="assets/img/siru-lockup.svg" alt="" width="296" height="90">
+    </div>
+    <div class="wrap hv-inner">
+      <div class="hero-copy">
+        <div class="eyebrow anim a0">Advisory · Irvine, California</div>
+        <h1><span class="line anim a1">Better projects.</span><span class="line anim a2"><em>Clearer</em> decisions.</span></h1>
+        <p class="lead anim a3">Siru Consulting sources and screens real estate development opportunities for EB-5 fund managers and capital partners — and helps growing firms build the marketing and AI systems behind their next stage.</p>
+        <div class="actions anim a4">
+          <a class="btn btn-dark" href="mailto:info@siruconsult.com">Start a conversation <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#services">Our services</a>
+        </div>
       </div>
     </div>
-    <div class="hero-art"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-  <g class="orbit"><circle cx="100" cy="100" r="96" fill="none" stroke="#E9E1D6" stroke-width=".8"/><circle cx="196" cy="100" r="3" fill="#C2553D"/></g>
-  <circle cx="100" cy="100" r="78" fill="none" stroke="#E9E1D6" stroke-width=".8"/>
-  <g class="orbit-rev"><circle cx="100" cy="100" r="60" fill="none" stroke="#D9CFC2" stroke-width=".8" stroke-dasharray="2 4"/><circle cx="40" cy="100" r="2.6" fill="#2B2A2E"/></g>
-  <g transform="translate(50 50)" fill="none" stroke-width="11" stroke-linecap="round">
-    <path class="arc" stroke="#2B2A2E" d="M65.59 23 A18 18 0 1 0 41 47.59"/>
-    <path class="arc arc-2" stroke="#C2553D" d="M59 52.41 A18 18 0 1 1 34.41 77"/>
-  </g>
-</svg></div>
+    <button class="hv-toggle" type="button" hidden aria-label="Pause background video" data-label-pause="Pause background video" data-label-play="Play background video">
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+    </button>
   </section>
 
   <div class="marquee" aria-label="Project Sourcing · Screening & Tear Sheets · Capital Stack Review · Marketing Strategy · AI & Sales Systems · English · 中文">
@@ -105,11 +108,11 @@
   <section class="band" id="approach">
     <div class="wrap section">
       <div class="section-head"><div class="titles"><div class="eyebrow">How we work</div><h2 class="reveal">A structured process, handled directly.</h2></div></div>
-      <ol class="steps">
-        <li class="reveal d0"><div class="n" aria-hidden="true">01</div><h3>Understand</h3><p>Your mandate, criteria and constraints — before anything is sent your way.</p></li>
-        <li class="reveal d1"><div class="n" aria-hidden="true">02</div><h3>Source</h3><p>A tracked pipeline built from direct relationships with sponsors and developers.</p></li>
-        <li class="reveal d2"><div class="n" aria-hidden="true">03</div><h3>Screen</h3><p>Fit, sponsor background, capital stack and open questions — flagged early.</p></li>
-        <li class="reveal d3"><div class="n" aria-hidden="true">04</div><h3>Present</h3><p>One-page summaries you can decide on, and introductions when there is a fit.</p></li>
+      <ol class="steps reveal">
+        <li class="step s0"><div class="n" aria-hidden="true">01</div><h3>Understand</h3><p>Your mandate, criteria and constraints — before anything is sent your way.</p></li>
+        <li class="step s1"><div class="n" aria-hidden="true">02</div><h3>Source</h3><p>A tracked pipeline built from direct relationships with sponsors and developers.</p></li>
+        <li class="step s2"><div class="n" aria-hidden="true">03</div><h3>Screen</h3><p>Fit, sponsor background, capital stack and open questions — flagged early.</p></li>
+        <li class="step s3"><div class="n" aria-hidden="true">04</div><h3>Present</h3><p>One-page summaries you can decide on, and introductions when there is a fit.</p></li>
       </ol>
     </div>
   </section>

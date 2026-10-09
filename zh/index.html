@@ -29,7 +29,7 @@
 <script src="../assets/site.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Siru Consulting LLC", "url": "https://siruconsult.com/", "email": "info@siruconsult.com", "telephone": "+19499098989", "address": {"@type": "PostalAddress", "addressLocality": "Irvine", "addressRegion": "CA", "addressCountry": "US"}, "logo": "https://siruconsult.com/assets/img/siru-lockup.svg"}</script>
 </head>
-<body>
+<body class="has-hv">
 <a class="skip" href="#main">跳到正文</a>
 <header class="site-header">
   <div class="wrap nav">
@@ -39,33 +39,36 @@
       <a class="link" href="#approach">工作方式</a>
       <a class="link" href="#about">关于我们</a>
       <span class="lang" role="group" aria-label="Language / 语言">
-        <a href="../" hreflang="en" lang="en" aria-current="false">EN</a>
-        <a href="./" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a>
+        <a class="lang-link" href="../" hreflang="en" lang="en" aria-current="false">EN</a>
+        <a class="lang-link" href="./" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a>
       </span>
       <a class="btn btn-primary" href="#contact">联系我们</a>
     </nav>
   </div>
 </header>
 <main id="main">
-  <section class="wrap hero" id="top">
-    <div class="hero-copy">
-      <div class="eyebrow reveal">咨询顾问 · 加州尔湾</div>
-      <h1 class="reveal d1">更好的项目，<br><em>更清晰</em>的决策。</h1>
-      <p class="lead reveal d2">Siru Consulting 为 EB-5 基金管理人及资本合作方寻找并筛选房地产开发项目，同时帮助成长中的企业搭建支撑下一阶段发展的营销体系与 AI 系统。</p>
-      <div class="actions reveal d3">
-        <a class="btn btn-dark" href="mailto:info@siruconsult.com">与我们联系 <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#services">了解服务</a>
+  <section class="hv" id="top">
+    <div class="hv-media" aria-hidden="true">
+      <video class="hv-video" autoplay muted playsinline preload="none" poster="../assets/video/hero-poster.jpg" data-src="../assets/video/hero.mp4" data-src-mobile="../assets/video/hero-720.mp4"></video>
+      <div class="hv-end"></div>
+      <div class="hv-scrim"></div>
+      <img class="hv-logo" src="../assets/img/siru-lockup.svg" alt="" width="296" height="90">
+    </div>
+    <div class="wrap hv-inner">
+      <div class="hero-copy">
+        <div class="eyebrow anim a0">咨询顾问 · 加州尔湾</div>
+        <h1><span class="line anim a1">更好的项目，</span><span class="line anim a2"><em>更清晰</em>的决策。</span></h1>
+        <p class="lead anim a3">Siru Consulting 为 EB-5 基金管理人及资本合作方寻找并筛选房地产开发项目，同时帮助成长中的企业搭建支撑下一阶段发展的营销体系与 AI 系统。</p>
+        <div class="actions anim a4">
+          <a class="btn btn-dark" href="mailto:info@siruconsult.com">与我们联系 <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#services">了解服务</a>
+        </div>
       </div>
     </div>
-    <div class="hero-art"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-  <g class="orbit"><circle cx="100" cy="100" r="96" fill="none" stroke="#E9E1D6" stroke-width=".8"/><circle cx="196" cy="100" r="3" fill="#C2553D"/></g>
-  <circle cx="100" cy="100" r="78" fill="none" stroke="#E9E1D6" stroke-width=".8"/>
-  <g class="orbit-rev"><circle cx="100" cy="100" r="60" fill="none" stroke="#D9CFC2" stroke-width=".8" stroke-dasharray="2 4"/><circle cx="40" cy="100" r="2.6" fill="#2B2A2E"/></g>
-  <g transform="translate(50 50)" fill="none" stroke-width="11" stroke-linecap="round">
-    <path class="arc" stroke="#2B2A2E" d="M65.59 23 A18 18 0 1 0 41 47.59"/>
-    <path class="arc arc-2" stroke="#C2553D" d="M59 52.41 A18 18 0 1 1 34.41 77"/>
-  </g>
-</svg></div>
+    <button class="hv-toggle" type="button" hidden aria-label="暂停背景视频" data-label-pause="暂停背景视频" data-label-play="播放背景视频">
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+    </button>
   </section>
 
   <div class="marquee" aria-label="项目寻源 · 筛选与项目简报 · 资本结构梳理 · 营销策略 · AI 与销售系统 · English · 中文">
@@ -105,11 +108,11 @@
   <section class="band" id="approach">
     <div class="wrap section">
       <div class="section-head"><div class="titles"><div class="eyebrow">工作方式</div><h2 class="reveal">结构化流程，亲自负责。</h2></div></div>
-      <ol class="steps">
-        <li class="reveal d0"><div class="n" aria-hidden="true">01</div><h3>了解需求</h3><p>在推荐任何项目之前，先明确您的方向、标准与限制。</p></li>
-        <li class="reveal d1"><div class="n" aria-hidden="true">02</div><h3>寻源</h3><p>基于与项目发起方和开发商的直接联系，建立可追踪的项目管道。</p></li>
-        <li class="reveal d2"><div class="n" aria-hidden="true">03</div><h3>筛选</h3><p>项目匹配度、发起方背景、资本结构与待解问题——尽早标出。</p></li>
-        <li class="reveal d3"><div class="n" aria-hidden="true">04</div><h3>呈现</h3><p>提供可直接用于决策的一页摘要，匹配时安排对接。</p></li>
+      <ol class="steps reveal">
+        <li class="step s0"><div class="n" aria-hidden="true">01</div><h3>了解需求</h3><p>在推荐任何项目之前，先明确您的方向、标准与限制。</p></li>
+        <li class="step s1"><div class="n" aria-hidden="true">02</div><h3>寻源</h3><p>基于与项目发起方和开发商的直接联系，建立可追踪的项目管道。</p></li>
+        <li class="step s2"><div class="n" aria-hidden="true">03</div><h3>筛选</h3><p>项目匹配度、发起方背景、资本结构与待解问题——尽早标出。</p></li>
+        <li class="step s3"><div class="n" aria-hidden="true">04</div><h3>呈现</h3><p>提供可直接用于决策的一页摘要，匹配时安排对接。</p></li>
       </ol>
     </div>
   </section>
