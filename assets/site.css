@@ -188,8 +188,8 @@ p{margin:0}
   .hv{display:block;min-height:0;background:var(--paper)}
   .hv-media{position:relative;inset:auto;aspect-ratio:16/9;margin-top:64px}
   .hv-scrim{background:none}
-  .hv-logo{right:auto;left:50%;width:46%;transform:translate(-50%,-44%)}
-  .hv.is-ended .hv-logo{transform:translate(-50%,-50%)}
+  .hv-logo{right:auto;left:50%;width:46%;transform:translate(-58%,-44%)}
+  .hv.is-ended .hv-logo{transform:translate(-58%,-50%)}
   .hv-inner{padding-top:36px;padding-bottom:56px}
   .hv-toggle{top:calc(64px + 56.25vw - 56px);bottom:auto;right:12px}
   .has-hv .site-header{background:rgba(250,246,240,.92)}
