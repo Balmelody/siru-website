@@ -22,6 +22,12 @@
     var toggle = hero && hero.querySelector('.hv-toggle');
     if (hero && video) {
       var done = false, started = false, stallTimer = null;
+      var setToggle = function (paused) {
+        if (!toggle) return;
+        toggle.hidden = false;
+        toggle.classList.toggle('is-paused', paused);
+        toggle.setAttribute('aria-label', toggle.getAttribute(paused ? 'data-label-play' : 'data-label-pause'));
+      };
       var finish = function () {
         if (done) return;
         done = true;
@@ -41,38 +47,41 @@
           started = true;
           clearTimeout(stallTimer);
           if (done) { video.pause(); return; }
-          if (toggle) toggle.hidden = false;
+          setToggle(false);
         });
-        /* Buffering too long mid-play (weak signal, in-app browsers): go to the end frame instead of a frozen picture */
+        /* Stuck buffering mid-play (weak signal): go to the end frame instead of a frozen picture */
         video.addEventListener('waiting', function () {
+          if (!started) return;
           clearTimeout(stallTimer);
-          stallTimer = setTimeout(finish, 5000);
+          stallTimer = setTimeout(finish, 8000);
         });
         var tryPlay = function () {
           if (done) return;
           var p = video.play();
-          if (p && p.catch) p.catch(function () { /* autoplay blocked: handled by the fallback below */ });
+          if (p && p.catch) p.catch(function () { /* autoplay blocked: poster + play button, see below */ });
         };
         tryPlay();
-        /* WeChat's in-app browser only allows autoplay once its JS bridge is ready */
+        /* WeChat's in-app browser may allow autoplay once its JS bridge is ready */
         if (/MicroMessenger/i.test(navigator.userAgent)) {
           var wxPlay = function () { window.WeixinJSBridge.invoke('getNetworkType', {}, tryPlay); };
           if (window.WeixinJSBridge) wxPlay();
           else document.addEventListener('WeixinJSBridgeReady', wxPlay, false);
         }
-        /* Autoplay never started (blocked, low power mode): show the end frame + logo, not a stuck poster */
-        setTimeout(function () { if (!started) finish(); }, 4000);
+        /* Autoplay blocked (WeChat, low power mode): keep the poster, show the play button,
+           and start on the visitor's first tap anywhere on the page */
+        var onFirstTap = function (e) {
+          if (toggle && toggle.contains(e.target)) return;   // the button handles its own tap
+          document.removeEventListener('touchend', onFirstTap);
+          document.removeEventListener('click', onFirstTap);
+          if (!started) tryPlay();
+        };
+        document.addEventListener('touchend', onFirstTap, { passive: true });
+        document.addEventListener('click', onFirstTap);
+        setTimeout(function () { if (!started && !done) setToggle(true); }, 1500);
         if (toggle) {
           toggle.addEventListener('click', function () {
-            if (video.paused) {
-              video.play();
-              toggle.classList.remove('is-paused');
-              toggle.setAttribute('aria-label', toggle.getAttribute('data-label-pause'));
-            } else {
-              video.pause();
-              toggle.classList.add('is-paused');
-              toggle.setAttribute('aria-label', toggle.getAttribute('data-label-play'));
-            }
+            if (video.paused) { tryPlay(); setToggle(false); }
+            else { video.pause(); setToggle(true); }
           });
         }
       }
