@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://siruconsult.com/</loc><lastmod>2026-10-08</lastmod>
+  <url><loc>https://siruconsult.com/</loc><lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://siruconsult.com/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://siruconsult.com/zh/"/></url>
-  <url><loc>https://siruconsult.com/zh/</loc><lastmod>2026-10-08</lastmod>
+  <url><loc>https://siruconsult.com/zh/</loc><lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://siruconsult.com/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://siruconsult.com/zh/"/></url>
+  <url><loc>https://siruconsult.com/ai-systems/</loc><lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://siruconsult.com/ai-systems/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://siruconsult.com/zh/ai-systems/"/></url>
+  <url><loc>https://siruconsult.com/zh/ai-systems/</loc><lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://siruconsult.com/ai-systems/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://siruconsult.com/zh/ai-systems/"/></url>
+  <url><loc>https://siruconsult.com/work/</loc><lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://siruconsult.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://siruconsult.com/zh/work/"/></url>
+  <url><loc>https://siruconsult.com/zh/work/</loc><lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://siruconsult.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://siruconsult.com/zh/work/"/></url>
 </urlset>

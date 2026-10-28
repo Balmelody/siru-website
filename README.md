@@ -1,6 +1,7 @@
 # siruconsult.com
 
 Static website for Siru Consulting LLC (English at `/`, Chinese at `/zh/`).
+Inner pages: AI & Business Systems at `/ai-systems/` and Case studies at `/work/` (Chinese under `/zh/`); they use `assets/pages.css` and the hero animation in `assets/circuit.js`.
 Hosted on GitHub Pages with the custom domain in `CNAME`.
 
 - No build step, fonts self-hosted (SIL Open Font License: Sora, Plus Jakarta Sans).
