@@ -89,6 +89,11 @@
       ev.preventDefault();
       var data = Object.fromEntries(new FormData(form));
       if (data.botcheck) return;                    // honeypot ticked: drop silently
+      if (form.querySelector('.h-captcha') && !data['h-captcha-response']) {
+        show(form.getAttribute('data-msg-captcha'), 'error');
+        return;
+      }
+      delete data['g-recaptcha-response'];
       var name = (data.name || '').trim();
       data.subject = form.getAttribute('data-subject') + (name ? ' – ' + name : '');
       button.disabled = true;
@@ -101,6 +106,7 @@
         return r.json().then(function (j) { return r.ok && j.success; }, function () { return false; });
       }).catch(function () { return false; }).then(function (ok) {
         button.disabled = false;
+        if (window.hcaptcha) window.hcaptcha.reset();  // a token works once
         if (ok) { form.reset(); show(form.getAttribute('data-msg-ok'), 'ok'); }
         else show(form.getAttribute('data-msg-error'), 'error');
       });

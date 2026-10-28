@@ -170,6 +170,7 @@ p{margin:0}
 .field textarea{resize:vertical;min-height:132px;line-height:1.6}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--coral-light);box-shadow:0 0 0 3px rgba(232,131,107,.22)}
 .contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.captcha{min-height:78px}
 .form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
 .contact-form .btn{border:0;cursor:pointer;font-family:inherit}
 .contact-form .btn[disabled]{opacity:.65;cursor:wait;transform:none}
@@ -217,10 +218,13 @@ p{margin:0}
   .section{padding-top:72px;padding-bottom:72px}
   .contact-list div{flex-direction:column;align-items:flex-start;gap:4px}
   .contact-list dd{text-align:left}
-  .contact-form{padding:28px 20px}
+  .contact-form{padding:28px 16px}
 }
 @media (max-width:420px){
   .nav .btn{display:none}
+}
+@media (max-width:380px){
+  .captcha .h-captcha{transform:scale(.88);transform-origin:left top}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action https://api.web3forms.com; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' https://hcaptcha.com https://*.hcaptcha.com; img-src 'self'; font-src 'self'; connect-src https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; object-src 'none'; base-uri 'self'; form-action https://api.web3forms.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Siru Consulting | 房地产项目寻源、营销策略与 AI 咨询</title>
 <meta name="description" content="Siru Consulting 是一家位于加州尔湾的咨询公司，为 EB-5 基金管理人及资本合作方寻找并筛选房地产开发项目，并协助成长中的企业搭建营销体系与 AI 系统。">
@@ -27,6 +27,7 @@
 <link rel="preload" href="../assets/fonts/sora-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
 <script src="../assets/site.js"></script>
+<script src="https://js.hcaptcha.com/1/api.js?hl=zh-CN" async defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Siru Consulting LLC", "url": "https://siruconsult.com/", "email": "info@siruconsult.com", "telephone": "+19499098989", "address": {"@type": "PostalAddress", "addressLocality": "Irvine", "addressRegion": "CA", "addressCountry": "US"}, "logo": "https://siruconsult.com/assets/img/siru-lockup.svg"}</script>
 </head>
 <body class="has-hv">
@@ -137,7 +138,7 @@
           <div><dt>所在地</dt><dd>加州尔湾</dd></div>
         </dl>
       </div>
-      <form class="contact-form reveal d2" id="inquiry" action="https://api.web3forms.com/submit" method="POST" data-subject="Website Inquiry (ZH)" data-msg-sending="正在发送…" data-msg-ok="谢谢！您的留言已发送，我们会尽快回复您。" data-msg-error="抱歉，留言未能发送。请稍后再试，或直接发邮件至 info@siruconsult.com。">
+      <form class="contact-form reveal d2" id="inquiry" action="https://api.web3forms.com/submit" method="POST" data-subject="Website Inquiry (ZH)" data-msg-sending="正在发送…" data-msg-captcha="请先完成上方的人机验证。" data-msg-ok="谢谢！您的留言已发送，我们会尽快回复您。" data-msg-error="抱歉，留言未能发送。请稍后再试，或直接发邮件至 info@siruconsult.com。">
         <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
         <input type="hidden" name="subject" value="Website Inquiry (ZH)">
         <input type="hidden" name="from_name" value="Siru Consulting Website">
@@ -148,6 +149,7 @@
         </div>
         <div class="field"><label for="f-phone">电话 <span class="opt">（选填）</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
         <div class="field"><label for="f-message">留言 <span class="req" aria-hidden="true">*</span></label><textarea id="f-message" name="message" rows="5" maxlength="5000" required></textarea></div>
+        <div class="captcha"><div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark"></div></div>
         <div class="form-foot">
           <button class="btn btn-primary" type="submit">发送留言 <span class="arrow" aria-hidden="true">→</span></button>
           <p class="form-note">您的信息仅用于回复本次咨询。</p>
