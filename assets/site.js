@@ -153,3 +153,37 @@
     });
   });
 })();
+
+/* TEMP DEBUG (preview branch only, never merge): on-screen log of the hero video */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var v = document.querySelector('.hv-video');
+    var hero = document.querySelector('.hv');
+    if (!v) return;
+    var box = document.createElement('div');
+    box.style.cssText = 'position:fixed;left:6px;right:6px;top:70px;z-index:9999;max-height:45vh;overflow:auto;background:rgba(0,0,0,.85);color:#fff;font:13px/1.4 monospace;padding:8px 10px;border-radius:8px;white-space:pre-wrap;word-break:break-all';
+    document.body.appendChild(box);
+    var t0 = Date.now();
+    var log = function (m) { box.textContent += ((Date.now() - t0) / 1000).toFixed(1) + 's ' + m + '\n'; };
+    box.textContent = '测试版 v5（视频 16 秒）\n';
+    log('UA ' + navigator.userAgent);
+    log('wechat=' + /MicroMessenger/i.test(navigator.userAgent) + ' bridge=' + !!window.WeixinJSBridge +
+        ' reduceMotion=' + !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) +
+        ' saveData=' + !!(navigator.connection && navigator.connection.saveData));
+    log('src=' + (v.currentSrc || v.src));
+    if (hero && hero.classList.contains('is-ended')) log('LOGO already shown at start');
+    if (hero && window.MutationObserver) new MutationObserver(function () {
+      if (hero.classList.contains('is-ended')) log('LOGO shown now');
+    }).observe(hero, { attributes: true, attributeFilter: ['class'] });
+    document.addEventListener('WeixinJSBridgeReady', function () { log('WeixinJSBridgeReady'); });
+    ['loadstart', 'loadedmetadata', 'canplay', 'play', 'playing', 'waiting', 'stalled', 'pause', 'ended', 'error'].forEach(function (e) {
+      v.addEventListener(e, function () { log(e + ' rs=' + v.readyState + ' t=' + v.currentTime.toFixed(1) + (e === 'error' ? (v.error ? ' code=' + v.error.code + ' ' + (v.error.message || '') : ' (no MediaError, ignored)') + ' ns=' + v.networkState : '')); });
+    });
+    var p = v.play; v.play = function () {
+      var r = p.apply(v, arguments);
+      log('play() called');
+      if (r && r.then) r.then(function () { log('play() ok'); }, function (err) { log('play() rejected: ' + err.name); });
+      return r;
+    };
+  });
+})();
