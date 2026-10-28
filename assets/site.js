@@ -21,7 +21,15 @@
     var video = hero && hero.querySelector('.hv-video');
     var toggle = hero && hero.querySelector('.hv-toggle');
     if (hero && video) {
-      var finish = function () { hero.classList.add('is-ended'); if (toggle) toggle.hidden = true; };
+      var done = false, started = false, stallTimer = null;
+      var finish = function () {
+        if (done) return;
+        done = true;
+        clearTimeout(stallTimer);
+        if (!video.ended) video.pause();
+        hero.classList.add('is-ended');
+        if (toggle) toggle.hidden = true;
+      };
       if (reduceMotion || saveData) {
         finish();                                   // static end state: white frame + logo
       } else {
@@ -29,9 +37,31 @@
         video.src = small ? video.getAttribute('data-src-mobile') : video.getAttribute('data-src');
         video.addEventListener('ended', finish);
         video.addEventListener('error', finish);
-        video.addEventListener('playing', function () { if (toggle) toggle.hidden = false; });
-        var p = video.play();
-        if (p && p.catch) p.catch(function () { /* autoplay blocked: poster stays */ });
+        video.addEventListener('playing', function () {
+          started = true;
+          clearTimeout(stallTimer);
+          if (done) { video.pause(); return; }
+          if (toggle) toggle.hidden = false;
+        });
+        /* Buffering too long mid-play (weak signal, in-app browsers): go to the end frame instead of a frozen picture */
+        video.addEventListener('waiting', function () {
+          clearTimeout(stallTimer);
+          stallTimer = setTimeout(finish, 5000);
+        });
+        var tryPlay = function () {
+          if (done) return;
+          var p = video.play();
+          if (p && p.catch) p.catch(function () { /* autoplay blocked: handled by the fallback below */ });
+        };
+        tryPlay();
+        /* WeChat's in-app browser only allows autoplay once its JS bridge is ready */
+        if (/MicroMessenger/i.test(navigator.userAgent)) {
+          var wxPlay = function () { window.WeixinJSBridge.invoke('getNetworkType', {}, tryPlay); };
+          if (window.WeixinJSBridge) wxPlay();
+          else document.addEventListener('WeixinJSBridgeReady', wxPlay, false);
+        }
+        /* Autoplay never started (blocked, low power mode): show the end frame + logo, not a stuck poster */
+        setTimeout(function () { if (!started) finish(); }, 4000);
         if (toggle) {
           toggle.addEventListener('click', function () {
             if (video.paused) {
