@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action https://api.web3forms.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Siru Consulting | Real Estate Project Sourcing, Marketing &amp; AI Advisory</title>
 <meta name="description" content="Siru Consulting is an Irvine, California advisory firm. We source and screen real estate development opportunities for EB-5 fund managers and capital partners, and help growing firms build marketing and AI systems.">
@@ -128,12 +128,32 @@
 
   <section class="contact" id="contact">
     <div class="wrap section contact-grid">
-      <div class="titles"><div class="eyebrow">Contact</div><h2 class="reveal">Have a project or a question? Let’s talk.</h2></div>
-      <dl class="contact-list reveal d1">
-        <div><dt>Email</dt><dd><a href="mailto:info@siruconsult.com">info@siruconsult.com</a></dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+19499098989">(949) 909-8989</a></dd></div>
-        <div><dt>Location</dt><dd>Irvine, California</dd></div>
-      </dl>
+      <div class="contact-intro">
+        <div class="titles"><div class="eyebrow">Contact</div><h2 class="reveal">Have a project or a question? Let’s talk.</h2></div>
+        <p class="contact-lead reveal d1">Tell us a little about what you’re working on and we’ll reply by email.</p>
+        <dl class="contact-list reveal d1">
+          <div><dt>Email</dt><dd><a href="mailto:info@siruconsult.com">info@siruconsult.com</a></dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+19499098989">(949) 909-8989</a></dd></div>
+          <div><dt>Location</dt><dd>Irvine, California</dd></div>
+        </dl>
+      </div>
+      <form class="contact-form reveal d2" id="inquiry" action="https://api.web3forms.com/submit" method="POST" data-subject="Website Inquiry" data-msg-sending="Sending…" data-msg-ok="Thank you. Your message has been sent and we’ll get back to you soon." data-msg-error="Sorry, your message couldn’t be sent. Please try again, or email info@siruconsult.com.">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Website Inquiry">
+        <input type="hidden" name="from_name" value="Siru Consulting Website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field-row">
+          <div class="field"><label for="f-name">Name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required></div>
+          <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+        </div>
+        <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="field"><label for="f-message">Message <span class="req" aria-hidden="true">*</span></label><textarea id="f-message" name="message" rows="5" maxlength="5000" required></textarea></div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Send message <span class="arrow" aria-hidden="true">→</span></button>
+          <p class="form-note">We use your details only to reply to your inquiry.</p>
+        </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>

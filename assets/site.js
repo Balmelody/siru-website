@@ -71,3 +71,39 @@
     }
   });
 })();
+
+/* Contact form: send in place via Web3Forms and show the result without leaving the page.
+   Without JS the form still posts to Web3Forms directly. */
+(function () {
+  if (!window.fetch || !window.FormData) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('inquiry');
+    if (!form) return;
+    var status = form.querySelector('.form-status');
+    var button = form.querySelector('button[type="submit"]');
+    var show = function (text, kind) {
+      status.textContent = text;
+      status.className = 'form-status' + (kind ? ' is-' + kind : '');
+    };
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var data = Object.fromEntries(new FormData(form));
+      if (data.botcheck) return;                    // honeypot ticked: drop silently
+      var name = (data.name || '').trim();
+      data.subject = form.getAttribute('data-subject') + (name ? ' – ' + name : '');
+      button.disabled = true;
+      show(form.getAttribute('data-msg-sending'));
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        return r.json().then(function (j) { return r.ok && j.success; }, function () { return false; });
+      }).catch(function () { return false; }).then(function (ok) {
+        button.disabled = false;
+        if (ok) { form.reset(); show(form.getAttribute('data-msg-ok'), 'ok'); }
+        else show(form.getAttribute('data-msg-error'), 'error');
+      });
+    });
+  });
+})();

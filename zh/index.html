@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action https://api.web3forms.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Siru Consulting | 房地产项目寻源、营销策略与 AI 咨询</title>
 <meta name="description" content="Siru Consulting 是一家位于加州尔湾的咨询公司，为 EB-5 基金管理人及资本合作方寻找并筛选房地产开发项目，并协助成长中的企业搭建营销体系与 AI 系统。">
@@ -128,12 +128,32 @@
 
   <section class="contact" id="contact">
     <div class="wrap section contact-grid">
-      <div class="titles"><div class="eyebrow">联系我们</div><h2 class="reveal">有项目或问题？<br>欢迎与我们联系。</h2></div>
-      <dl class="contact-list reveal d1">
-        <div><dt>邮箱</dt><dd><a href="mailto:info@siruconsult.com">info@siruconsult.com</a></dd></div>
-        <div><dt>电话</dt><dd><a href="tel:+19499098989">(949) 909-8989</a></dd></div>
-        <div><dt>所在地</dt><dd>加州尔湾</dd></div>
-      </dl>
+      <div class="contact-intro">
+        <div class="titles"><div class="eyebrow">联系我们</div><h2 class="reveal">有项目或问题？<br>欢迎与我们联系。</h2></div>
+        <p class="contact-lead reveal d1">请简单介绍您的需求，我们会通过邮件回复您。</p>
+        <dl class="contact-list reveal d1">
+          <div><dt>邮箱</dt><dd><a href="mailto:info@siruconsult.com">info@siruconsult.com</a></dd></div>
+          <div><dt>电话</dt><dd><a href="tel:+19499098989">(949) 909-8989</a></dd></div>
+          <div><dt>所在地</dt><dd>加州尔湾</dd></div>
+        </dl>
+      </div>
+      <form class="contact-form reveal d2" id="inquiry" action="https://api.web3forms.com/submit" method="POST" data-subject="Website Inquiry (ZH)" data-msg-sending="正在发送…" data-msg-ok="谢谢！您的留言已发送，我们会尽快回复您。" data-msg-error="抱歉，留言未能发送。请稍后再试，或直接发邮件至 info@siruconsult.com。">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Website Inquiry (ZH)">
+        <input type="hidden" name="from_name" value="Siru Consulting Website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field-row">
+          <div class="field"><label for="f-name">姓名 <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required></div>
+          <div class="field"><label for="f-email">邮箱 <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+        </div>
+        <div class="field"><label for="f-phone">电话 <span class="opt">（选填）</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="field"><label for="f-message">留言 <span class="req" aria-hidden="true">*</span></label><textarea id="f-message" name="message" rows="5" maxlength="5000" required></textarea></div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">发送留言 <span class="arrow" aria-hidden="true">→</span></button>
+          <p class="form-note">您的信息仅用于回复本次咨询。</p>
+        </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
