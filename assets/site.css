@@ -66,9 +66,9 @@ p{margin:0}
 .hv.is-ended .hv-end{opacity:1}
 .hv.is-ended .hv-logo{opacity:1;transform:translate(3.41%,-50%)}
 .hv-inner{position:relative;z-index:1;width:100%;padding-top:120px;padding-bottom:88px}
-.hero-copy{display:flex;flex-direction:column;gap:26px;max-width:38rem}
+.hero-copy{display:flex;flex-direction:column;gap:26px;max-width:42rem}
 .hv h1{font-size:clamp(40px,5.4vw,72px);line-height:1.05;letter-spacing:-.03em}
-.hv h1 .line{display:block}
+.hv h1 .line{display:block;white-space:nowrap}
 :lang(zh) .hv h1{letter-spacing:0;line-height:1.2}
 .hv h1 em{font-style:normal;color:var(--coral)}
 .hv .lead{font-size:19px;line-height:1.7;color:var(--ink-soft);max-width:34rem}
@@ -140,8 +140,8 @@ p{margin:0}
 .about{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:56px;align-items:start}
 .about .titles{display:flex;flex-direction:column;gap:14px}
 .about .body{display:flex;flex-direction:column;gap:22px;font-size:17px;line-height:1.8;color:var(--ink-soft)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:8px 0 0;padding:0}
-.facts div{border-top:1px solid #D9CFC2;padding-top:14px}
+.facts{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 0;padding:0}
+.facts div{flex:1 1 0;min-width:max-content;border-top:1px solid #D9CFC2;padding-top:14px}
 .facts dt{font-family:var(--display);font-size:15px;font-weight:600;color:var(--ink)}
 .facts dd{margin:0;font-size:15px}
 
@@ -180,6 +180,13 @@ p{margin:0}
 .form-status.is-ok{color:#A8D5B5}
 .form-status.is-error{color:var(--coral-light)}
 
+/* Typography: no stranded last words; body copy justified */
+h1,h2,h3{text-wrap:balance}
+p,dd,.steps li{text-wrap:pretty}
+.lead,.card p,.about .body p,.contact-lead,.disclaimer,:lang(zh) .steps p{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+:lang(zh) h1,:lang(zh) h2,:lang(zh) h3{word-break:keep-all;overflow-wrap:break-word}
+:lang(zh) body{line-break:strict}
+
 /* Footer */
 .site-footer{background:var(--ink-deep);color:var(--on-dark-faint)}
 .footer-inner{display:flex;flex-direction:column;gap:22px;padding-top:40px;padding-bottom:48px}
@@ -213,12 +220,14 @@ p{margin:0}
   .hv-logo{right:auto;left:50%;width:46%;transform:translate(-58%,-44%)}
   .hv.is-ended .hv-logo{transform:translate(-58%,-50%)}
   .hv-inner{padding-top:36px;padding-bottom:56px}
+  .hv h1{font-size:clamp(30px,9.8vw,40px)}
   .hv-toggle{top:calc(64px + 56.25vw - 56px);bottom:auto;right:12px}
   .has-hv .site-header{background:rgba(250,246,240,.92)}
   .section{padding-top:72px;padding-bottom:72px}
   .contact-list div{flex-direction:column;align-items:flex-start;gap:4px}
   .contact-list dd{text-align:left}
   .contact-form{padding:28px 16px}
+  .card{padding:30px 22px}
 }
 @media (max-width:420px){
   .nav .btn{display:none}
