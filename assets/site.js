@@ -42,7 +42,8 @@
         var small = window.matchMedia('(max-width: 760px)').matches;
         video.src = small ? video.getAttribute('data-src-mobile') : video.getAttribute('data-src');
         video.addEventListener('ended', finish);
-        video.addEventListener('error', finish);
+        /* Only a real media error ends the video; WeChat on iOS fires an empty 'error' while still loading */
+        video.addEventListener('error', function () { if (video.error) finish(); });
         video.addEventListener('playing', function () {
           started = true;
           clearTimeout(stallTimer);
